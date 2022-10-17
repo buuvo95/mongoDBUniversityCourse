@@ -170,6 +170,8 @@ public class MovieDao extends AbstractMFlixDao {
         Bson sort = null;
         //TODO> Ticket: Subfield Text Search - implement the expected cast
         // filter and sort
+        castFilter = Filters.in("cast", cast);
+        sort = Sorts.descending(sortKey);
         List<Document> movies = new ArrayList<>();
         moviesCollection
                 .find(castFilter)
